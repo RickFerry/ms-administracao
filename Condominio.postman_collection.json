@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "308eb8e8-a382-4359-9f75-329d13ffb9e6",
+		"name": "Condominio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14818395"
+	},
+	"item": [
+		{
+			"name": "login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "myappsecret123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "myappname123",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "jane@me.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "654321",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "condominio",
+			"item": [
+				{
+					"name": "morador",
+					"item": [
+						{
+							"name": "findAll",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzIzODY5NDYsInVzZXJfbmFtZSI6ImphbmVAbWUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9PUEVSQVRPUiIsIlJPTEVfQURNSU4iXSwianRpIjoiNmM1M2VjZDItZjZiZi00YThmLTgxZDItM2E0YzI2OTE1ZWI5IiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.2a8DssVCjwsDvW-EnjP0wCE9-Y0QO_NsKfswp2yIFuM",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/moradores",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"moradores"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "token",
+					"item": [
+						{
+							"name": "tokenInfo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI0Njk4ODAsInVzZXJfbmFtZSI6ImphbmVAbWUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfT1BFUkFUT1IiXSwianRpIjoiYTEyOTFlZTItOGNkYS00YTkyLWFkZWEtZWU5NWVkYjAxNzUyIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.jC2mm0oMfsGmYSh-7i9mkj2IfIfZPdVrPPyXS6AHdJY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/token-info",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"token-info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tokenClaims",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI0NzA0NzgsInVzZXJfbmFtZSI6ImphbmVAbWUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfT1BFUkFUT1IiXSwianRpIjoiOGNhMmEwYTUtMTgzNC00MzQwLWE2M2YtNWUzOTMzZTI1NWYwIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.i0tyh-dkrv3Pc_6I5cBxXZd6Hz3k9IkPOUr35hWDliQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8081/token-claims?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI0NzA0NzgsInVzZXJfbmFtZSI6ImphbmVAbWUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfT1BFUkFUT1IiXSwianRpIjoiOGNhMmEwYTUtMTgzNC00MzQwLWE2M2YtNWUzOTMzZTI1NWYwIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.i0tyh-dkrv3Pc_6I5cBxXZd6Hz3k9IkPOUr35hWDliQ",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"token-claims"
+									],
+									"query": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzI0NzA0NzgsInVzZXJfbmFtZSI6ImphbmVAbWUuY29tIiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfT1BFUkFUT1IiXSwianRpIjoiOGNhMmEwYTUtMTgzNC00MzQwLWE2M2YtNWUzOTMzZTI1NWYwIiwiY2xpZW50X2lkIjoibXlhcHBuYW1lMTIzIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.i0tyh-dkrv3Pc_6I5cBxXZd6Hz3k9IkPOUr35hWDliQ"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
